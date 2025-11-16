@@ -1,0 +1,20 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+entity REG3 IS
+	port (C : in std_logic_vector(7 downto 0) ; 
+	res, clk : in std_logic ;
+	Q : out std_logic_vector(7 downto 0)) ; 
+end REG3;
+
+architecture behavior of REG3 is
+	begin
+		process (res, clk)
+		begin
+		if res = '1' then
+		Q <= "00000000" ;
+		elsif (clk'EVENT AND clk = '1') then
+		Q <= C ;
+		end if ;
+	end process ;
+end behavior; 
